@@ -42,7 +42,7 @@ const [isInFavorites, setIsInFavorites] = useState(localFavorites.existInFavorit
     <Layout title={pokemon.name}>
         <Grid.Container css={{ marginTop:'5px' }} gap={2}>
             <Grid xs={12} sm={4}>
-                <Card isHoverable isPressable css={{ padding:'30px' }}>
+                <Card hoverable clickable css={{ padding:'30px' }}>
                     <Card.Body>
                         <Card.Image 
                             src={pokemon.sprites.other?.dream_world.front_default || '/no-image.png'}

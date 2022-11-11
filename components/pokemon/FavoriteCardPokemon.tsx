@@ -14,7 +14,7 @@ export const FavoriteCardPokemon:React.FC<Props> = ({pokemonId}) => {
     }
   return (
     <Grid xs={6} sm={3} md={2} xl={1} key={pokemonId} onClick={onFavoriteClicked}>
-    <Card isHoverable isPressable css={{ padding:10 }}>
+    <Card hoverable clickable css={{ padding:10 }}>
       <Card.Image 
       src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`}
       width={'100%'}
