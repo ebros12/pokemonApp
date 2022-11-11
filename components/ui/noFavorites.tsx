@@ -14,6 +14,7 @@ export const NoFavorites = () => {
           <Text h1>No hay Favoritos</Text>
           <Image 
             src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/132.png'
+            alt="imagen de pokemon"
             width={250}
             height={250}
             css={{ 
