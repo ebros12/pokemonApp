@@ -57,7 +57,7 @@ const [isInFavorites, setIsInFavorites] = useState(localFavorites.existInFavorit
 
             <Grid xs={12} sm={8}>
                 <Card>
-                    <Card.Header css={{ display:'grid', 'grid-template-columns':'repeat(auto-fit, minmax(300px, 1fr))',justifyContent:'space-between' }}>
+                    <Card.Header css={{ textAlign:'center',display:'grid', 'grid-template-columns':'repeat(auto-fit, minmax(300px, 1fr))',justifyContent:'space-between' }}>
                         <Text h1 transform='capitalize'>{pokemon.name}</Text>
                         <Button
                       
