@@ -22,7 +22,7 @@ const [isInFavorites, setIsInFavorites] = useState(localFavorites.existInFavorit
         localFavorites.toggleFavorite(pokemon.id)
         setIsInFavorites(!isInFavorites)
 
-        if(!isInFavorites) return;
+        if(isInFavorites) return;
             confetti({
                 zIndex:999,
                 particleCount: 100,
@@ -57,9 +57,10 @@ const [isInFavorites, setIsInFavorites] = useState(localFavorites.existInFavorit
 
             <Grid xs={12} sm={8}>
                 <Card>
-                    <Card.Header css={{ display:'flex', justifyContent:'space-between' }}>
+                    <Card.Header css={{ display:'grid', 'grid-template-columns':'repeat(auto-fit, minmax(300px, 1fr))',justifyContent:'space-between' }}>
                         <Text h1 transform='capitalize'>{pokemon.name}</Text>
                         <Button
+                      
                         color="gradient"
                         ghost={!isInFavorites}
                         onClick={onToggleFavorite}
@@ -120,19 +121,30 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
         paths:pokemonNames.map(name => ({
             params:{name}
         })),
-        fallback: false
+        fallback: 'blocking'
     }
 }
 
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
     const {name} = params as {name:string};
- 
-    return {
-      props: {
-        pokemon: await getPokemonInfo( name )
-      }
+    
+    const pokemon = await getPokemonInfo(name);
+
+    if( !pokemon ){
+        return {
+            redirect:{
+                destination: '/',
+                permanent: false
+            }
+        }
     }
+    return {
+        props: {
+          pokemon
+        },
+        revalidate:86400,
+      }
   }
 
 
