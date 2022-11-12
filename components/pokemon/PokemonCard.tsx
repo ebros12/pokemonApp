@@ -23,7 +23,7 @@ export const PokemonCard:React.FC<Props> = ({ pokemon }) => {
                       />
                     </Card.Body>
                     <Card.Footer>
-                      <Row justify='space-between'>
+                      <Row justify='space-between' css={{ display:'block' }}>
                         <Text transform='capitalize'>{ pokemon.name }</Text>
                         <Text>#{ pokemon.name }</Text>
                       </Row>
