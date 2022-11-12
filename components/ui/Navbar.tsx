@@ -13,7 +13,7 @@ export const Navbar = () => {
         alignItems: 'center',
         justifyContent: 'start',
         padding: '0px 20px',
-        backgroundColor: theme?.colors.gray100.value
+        backgroundColor: theme?.colors.gray900.value
      }}>
 
         <NextLink href="/" passHref>
